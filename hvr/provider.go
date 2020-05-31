@@ -14,7 +14,7 @@ func Provider() terraform.ResourceProvider {
 			"connection_type": &schema.Schema{
 				Type:         schema.TypeString,
 				Required:     true,
-				ValidateFunc: validateConnectionType,
+				ValidateFunc: validation.StringInSlice([]string{"postgresql"}, false),
 				Description:  descriptions["connection_type"],
 			},
 			"hub_database_host": &schema.Schema{
@@ -50,7 +50,9 @@ func Provider() terraform.ResourceProvider {
 				Sensitive:   true,
 			},
 		},
-		ResourcesMap:  map[string]*schema.Resource{},
+		ResourcesMap: map[string]*schema.Resource{
+			"hvr_location": resourceHVRLocation(),
+		},
 		ConfigureFunc: providerConfigure,
 	}
 }
@@ -82,14 +84,4 @@ func providerConfigure(d *schema.ResourceData) (interface{}, error) {
 	}
 
 	return nil, fmt.Errorf("unreachable error?")
-}
-
-func validateConnectionType(value interface{}, param string) (warnings []string, errors []error) {
-	v := value.(string)
-	if v == "postgresql" {
-		return
-	}
-
-	errors = append(errors, fmt.Errorf("connection_type must be one of (`postgresql`)"))
-	return
 }

@@ -1,6 +1,8 @@
 package hvr
 
 import (
+	"fmt"
+
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/validation"
 )
@@ -16,6 +18,7 @@ func resourceHVRLocation() *schema.Resource {
 			"name": &schema.Schema{
 				Type:         schema.TypeString,
 				Required:     true,
+				ForceNew:     true,
 				ValidateFunc: validation.StringLenBetween(1, 5),
 			},
 			"class": &schema.Schema{
@@ -90,20 +93,63 @@ func resourceHVRLocation() *schema.Resource {
 }
 
 func resourceHVRLocationCreate(d *schema.ResourceData, meta interface{}) error {
-	name := d.Get("name").(string)
-	d.SetId(name)
+	service := meta.(Service)
+
+	location := expandLocation(d)
+	err := service.NewLocation(location)
+
+	if err != nil {
+		return fmt.Errorf("error creating HVR location %+v: %s", d, err)
+	}
+
+	d.SetId(location.Name)
 	return resourceHVRLocationRead(d, meta)
 }
 
 func resourceHVRLocationRead(d *schema.ResourceData, meta interface{}) error {
+	service := meta.(Service)
+
+	location, err := service.GetLocation(d.Id())
+
+	if err != nil {
+		if err.Error() == "location not found" {
+			d.SetId("")
+			return nil
+		}
+		return fmt.Errorf("error reading HVR location %s: %s", d.Id(), err)
+	}
+
+	d.Set("name", location.Name)
+	d.Set("class", location.Class)
+	d.Set("description", location.Description)
+	d.Set("database_connection", flattenDatabaseConnection(location))
+	d.Set("remote_machine", flattenRemoteMachine(location))
+
 	return nil
 }
 
 func resourceHVRLocationUpdate(d *schema.ResourceData, meta interface{}) error {
+	service := meta.(Service)
+
+	location := expandLocation(d)
+	err := service.UpdateLocation(location)
+
+	if err != nil {
+		return fmt.Errorf("error updating HVR location %+v: %s", d, err)
+	}
+
 	return resourceHVRLocationRead(d, meta)
 }
 
 func resourceHVRLocationDelete(d *schema.ResourceData, meta interface{}) error {
+	service := meta.(Service)
+
+	err := service.DeleteLocation(d.Id())
+
+	if err != nil {
+		return fmt.Errorf("error deleting HVR location %+v: %s", d, err)
+	}
+
 	d.SetId("")
 	return nil
 }

@@ -1,8 +1,8 @@
 provider "hvr" {
   connection_type = "postgresql"
-  hub_database_host = "db-cdc-hvrhub.test.edgeapps.net"
+  hub_database_host = "localhost"
   hub_database_name = "hvrhub"
-  hub_database_username = "hvr"
+  hub_database_username = "michaelmosher"
 }
 
 resource "hvr_location" "this" {
@@ -10,7 +10,7 @@ resource "hvr_location" "this" {
   class = "db2i"
 
   database_connection {
-    node = "AMTEST"
+    node = "192.168.0.247"
     name = "AMTEST"
     username = "user"
     password = "pass"

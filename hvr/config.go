@@ -25,6 +25,11 @@ type Service interface {
 	NewChannel(hvrhub.Channel) error
 	UpdateChannel(hvrhub.Channel) error
 	DeleteChannel(string) error
+
+	GetLocationGroup(string, string) (hvrhub.LocationGroup, error)
+	NewLocationGroup(hvrhub.LocationGroup) error
+	UpdateLocationGroup(hvrhub.LocationGroup) error
+	DeleteLocationGroup(string, string) error
 }
 
 func (c Config) Client() (Service, error) {

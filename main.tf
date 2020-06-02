@@ -28,3 +28,9 @@ resource "hvr_channel" "this" {
   name = "hello->world"
   description = "Replicates data from `hello` source to `world` target."
 }
+
+resource "hvr_location_group" "source" {
+  channel_name = hvr_channel.this.name
+  group_name = "source"
+  group_description = "source (hello)"
+}

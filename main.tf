@@ -23,3 +23,8 @@ resource "hvr_location" "this" {
     password = "N/A"
   }
 }
+
+resource "hvr_channel" "this" {
+  name = "hello->world"
+  description = "Replicates data from `hello` source to `world` target."
+}

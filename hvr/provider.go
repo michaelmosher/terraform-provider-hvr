@@ -11,38 +11,38 @@ import (
 func Provider() terraform.ResourceProvider {
 	return &schema.Provider{
 		Schema: map[string]*schema.Schema{
-			"connection_type": &schema.Schema{
+			"connection_type": {
 				Type:         schema.TypeString,
 				Required:     true,
 				ValidateFunc: validation.StringInSlice([]string{"postgresql"}, false),
 				Description:  descriptions["connection_type"],
 			},
-			"hub_database_host": &schema.Schema{
+			"hub_database_host": {
 				Type:        schema.TypeString,
 				Optional:    true,
 				DefaultFunc: schema.EnvDefaultFunc("PGHOST", "localhost"),
 				Description: descriptions["database_host"],
 			},
-			"hub_database_port": &schema.Schema{
+			"hub_database_port": {
 				Type:         schema.TypeInt,
 				Optional:     true,
 				Default:      5432,
 				ValidateFunc: validation.IsPortNumber,
 				Description:  descriptions["database_port"],
 			},
-			"hub_database_name": &schema.Schema{
+			"hub_database_name": {
 				Type:        schema.TypeString,
 				Optional:    true,
 				DefaultFunc: schema.EnvDefaultFunc("PGDATABASE", "postgres"),
 				Description: descriptions["database_name"],
 			},
-			"hub_database_username": &schema.Schema{
+			"hub_database_username": {
 				Type:        schema.TypeString,
 				Optional:    true,
 				DefaultFunc: schema.EnvDefaultFunc("PGUSER", "postgres"),
 				Description: descriptions["database_username"],
 			},
-			"hub_database_password": &schema.Schema{
+			"hub_database_password": {
 				Type:        schema.TypeString,
 				Optional:    true,
 				DefaultFunc: schema.EnvDefaultFunc("PGPASSWORD", nil),

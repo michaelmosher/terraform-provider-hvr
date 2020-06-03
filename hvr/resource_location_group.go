@@ -17,19 +17,19 @@ func resourceHVRLocationGroup() *schema.Resource {
 		Delete: resourceHVRLocationGroupDelete,
 
 		Schema: map[string]*schema.Schema{
-			"channel_name": &schema.Schema{
+			"channel_name": {
 				Type:         schema.TypeString,
 				Required:     true,
 				ForceNew:     true,
 				ValidateFunc: validation.StringLenBetween(1, 12),
 			},
-			"group_name": &schema.Schema{
+			"group_name": {
 				Type:         schema.TypeString,
 				Required:     true,
 				ForceNew:     true,
 				ValidateFunc: validation.StringLenBetween(1, 11),
 			},
-			"group_description": &schema.Schema{
+			"group_description": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "",

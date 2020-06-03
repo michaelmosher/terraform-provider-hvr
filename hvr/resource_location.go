@@ -15,23 +15,23 @@ func resourceHVRLocation() *schema.Resource {
 		Delete: resourceHVRLocationDelete,
 
 		Schema: map[string]*schema.Schema{
-			"name": &schema.Schema{
+			"name": {
 				Type:         schema.TypeString,
 				Required:     true,
 				ForceNew:     true,
 				ValidateFunc: validation.StringLenBetween(1, 5),
 			},
-			"class": &schema.Schema{
+			"class": {
 				Type:         schema.TypeString,
 				Required:     true,
 				ValidateFunc: validation.StringInSlice([]string{"db2i", "postgresql"}, false),
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "",
 			},
-			"database_connection": &schema.Schema{
+			"database_connection": {
 				Type:     schema.TypeList,
 				Required: true,
 				MaxItems: 1,
@@ -62,7 +62,7 @@ func resourceHVRLocation() *schema.Resource {
 					},
 				},
 			},
-			"remote_machine": &schema.Schema{
+			"remote_machine": {
 				Type:     schema.TypeList,
 				Optional: true,
 				MaxItems: 1,

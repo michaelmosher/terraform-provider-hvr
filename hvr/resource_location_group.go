@@ -3,6 +3,7 @@ package hvr
 import (
 	"encoding/base64"
 	"fmt"
+	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/validation"
@@ -21,13 +22,13 @@ func resourceHVRLocationGroup() *schema.Resource {
 				Type:         schema.TypeString,
 				Required:     true,
 				ForceNew:     true,
-				ValidateFunc: validation.StringLenBetween(1, 12),
+				ValidateFunc: hvrChannelNameValidator(),
 			},
 			"group_name": {
 				Type:         schema.TypeString,
 				Required:     true,
 				ForceNew:     true,
-				ValidateFunc: validation.StringLenBetween(1, 11),
+				ValidateFunc: hvrGroupNameValidator(),
 			},
 			"group_description": {
 				Type:     schema.TypeString,
@@ -106,4 +107,14 @@ func resourceHVRLocationGroupDelete(d *schema.ResourceData, meta interface{}) er
 
 	d.SetId("")
 	return nil
+}
+
+func hvrGroupNameValidator() schema.SchemaValidateFunc {
+	r := regexp.MustCompile("^[[:upper:]0-9_]+$")
+	violationMessage := "only uppercase letters, underscores and numbers are allowed."
+
+	return validation.All(
+		validation.StringLenBetween(1, 11),
+		validation.StringMatch(r, violationMessage),
+	)
 }

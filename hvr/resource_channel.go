@@ -2,6 +2,7 @@ package hvr
 
 import (
 	"fmt"
+	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/validation"
@@ -20,7 +21,7 @@ func resourceHVRChannel() *schema.Resource {
 				Type:         schema.TypeString,
 				Required:     true,
 				ForceNew:     true,
-				ValidateFunc: validation.StringLenBetween(1, 12),
+				ValidateFunc: hvrChannelNameValidator(),
 			},
 			"description": {
 				Type:     schema.TypeString,
@@ -91,4 +92,14 @@ func resourceHVRChannelDelete(d *schema.ResourceData, meta interface{}) error {
 
 	d.SetId("")
 	return nil
+}
+
+func hvrChannelNameValidator() schema.SchemaValidateFunc {
+	r := regexp.MustCompile("^[[:alpha:]][[:alnum:]_]*$")
+	violationMessage := "names must be composed of alphabetics followed by alphanumerics or underscores"
+
+	return validation.All(
+		validation.StringLenBetween(1, 12),
+		validation.StringMatch(r, violationMessage),
+	)
 }

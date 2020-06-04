@@ -51,9 +51,10 @@ func Provider() terraform.ResourceProvider {
 			},
 		},
 		ResourcesMap: map[string]*schema.Resource{
-			"hvr_channel":        resourceHVRChannel(),
-			"hvr_location":       resourceHVRLocation(),
-			"hvr_location_group": resourceHVRLocationGroup(),
+			"hvr_channel":               resourceHVRChannel(),
+			"hvr_location":              resourceHVRLocation(),
+			"hvr_location_group":        resourceHVRLocationGroup(),
+			"hvr_location_group_member": resourceHVRLocationGroupMember(),
 		},
 		ConfigureFunc: providerConfigure,
 	}

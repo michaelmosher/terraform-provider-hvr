@@ -30,6 +30,10 @@ type Service interface {
 	NewLocationGroup(hvrhub.LocationGroup) error
 	UpdateLocationGroup(hvrhub.LocationGroup) error
 	DeleteLocationGroup(string, string) error
+
+	GetLocationGroupMember(string, string, string) (hvrhub.LocationGroupMember, error)
+	NewLocationGroupMember(hvrhub.LocationGroupMember) error
+	DeleteLocationGroupMember(string, string, string) error
 }
 
 func (c Config) Client() (Service, error) {

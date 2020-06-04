@@ -34,3 +34,9 @@ resource "hvr_location_group" "source" {
   group_name = "source"
   group_description = "source (hello)"
 }
+
+resource "hvr_location_group_member" "source_hello" {
+  channel_name = hvr_channel.this.name
+  group_name = hvr_location_group.source.group_name
+  location_name = hvr_location.this.name
+}

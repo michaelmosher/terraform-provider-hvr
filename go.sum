@@ -168,6 +168,10 @@ github.com/michaelmosher/go-hvr-sdk v0.0.0-20200601124941-989974092169 h1:8Wunbg
 github.com/michaelmosher/go-hvr-sdk v0.0.0-20200601124941-989974092169/go.mod h1:QfRaSM8DRLwVoYOmXR9eWvDw++Z2EaSw2r2FW2snFWo=
 github.com/michaelmosher/go-hvr-sdk v0.0.0-20200602114306-84a0a67182f8 h1:tb4J+1ykjK7GzKsBgNV88pzLvGb/jppC3XXLPlSluPk=
 github.com/michaelmosher/go-hvr-sdk v0.0.0-20200602114306-84a0a67182f8/go.mod h1:QfRaSM8DRLwVoYOmXR9eWvDw++Z2EaSw2r2FW2snFWo=
+github.com/michaelmosher/go-hvr-sdk v0.0.0-20200603002021-4d5c3d7f2792 h1:CMBVhsubm/5S9Nf5rsGslZixQGaLgVZQWftqSCT1Pg8=
+github.com/michaelmosher/go-hvr-sdk v0.0.0-20200603002021-4d5c3d7f2792/go.mod h1:QfRaSM8DRLwVoYOmXR9eWvDw++Z2EaSw2r2FW2snFWo=
+github.com/michaelmosher/go-hvr-sdk v0.0.0-20200603010218-5bc12b8928a8 h1:8qTipZQNsPlEDcpwiJmn5DNF6Zm65IIoTICcgpQhy3k=
+github.com/michaelmosher/go-hvr-sdk v0.0.0-20200603010218-5bc12b8928a8/go.mod h1:QfRaSM8DRLwVoYOmXR9eWvDw++Z2EaSw2r2FW2snFWo=
 github.com/mitchellh/cli v1.0.0 h1:iGBIsUe3+HZ/AD/Vd7DErOt5sU9fa8Uj7A2s1aggv1Y=
 github.com/mitchellh/cli v1.0.0/go.mod h1:hNIlj7HEI86fIcpObd7a0FcrxTWetlwJDGcceTlRvqc=
 github.com/mitchellh/colorstring v0.0.0-20190213212951-d06e56a500db/go.mod h1:l0dey0ia/Uv7NcFFVbCLtqEBQbrT4OCwCSKTEv6enCw=

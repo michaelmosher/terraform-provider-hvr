@@ -46,9 +46,8 @@ func resourceHVRLocationGroupCreate(d *schema.ResourceData, meta interface{}) er
 		Name:        d.Get("group_name").(string),
 		Description: d.Get("group_description").(string),
 	}
-	err := service.NewLocationGroup(group)
 
-	if err != nil {
+	if err := service.NewLocationGroup(group); err != nil {
 		return fmt.Errorf("error creating HVR location group %+v: %s", d, err)
 	}
 
@@ -87,9 +86,8 @@ func resourceHVRLocationGroupUpdate(d *schema.ResourceData, meta interface{}) er
 		Name:        d.Get("group_name").(string),
 		Description: d.Get("group_description").(string),
 	}
-	err := service.UpdateLocationGroup(group)
 
-	if err != nil {
+	if err := service.UpdateLocationGroup(group); err != nil {
 		return fmt.Errorf("error updating HVR location group %+v: %s", d, err)
 	}
 
@@ -102,9 +100,7 @@ func resourceHVRLocationGroupDelete(d *schema.ResourceData, meta interface{}) er
 	channelName := d.Get("channel_name").(string)
 	groupName := d.Get("group_name").(string)
 
-	err := service.DeleteLocationGroup(channelName, groupName)
-
-	if err != nil {
+	if err := service.DeleteLocationGroup(channelName, groupName); err != nil {
 		return fmt.Errorf("error deleting HVR location group %+v: %s", d, err)
 	}
 

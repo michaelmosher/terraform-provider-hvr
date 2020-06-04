@@ -96,9 +96,8 @@ func resourceHVRLocationCreate(d *schema.ResourceData, meta interface{}) error {
 	service := meta.(Service)
 
 	location := expandLocation(d)
-	err := service.NewLocation(location)
 
-	if err != nil {
+	if err := service.NewLocation(location); err != nil {
 		return fmt.Errorf("error creating HVR location %+v: %s", d, err)
 	}
 
@@ -132,9 +131,8 @@ func resourceHVRLocationUpdate(d *schema.ResourceData, meta interface{}) error {
 	service := meta.(Service)
 
 	location := expandLocation(d)
-	err := service.UpdateLocation(location)
 
-	if err != nil {
+	if err := service.UpdateLocation(location); err != nil {
 		return fmt.Errorf("error updating HVR location %+v: %s", d, err)
 	}
 
@@ -144,9 +142,7 @@ func resourceHVRLocationUpdate(d *schema.ResourceData, meta interface{}) error {
 func resourceHVRLocationDelete(d *schema.ResourceData, meta interface{}) error {
 	service := meta.(Service)
 
-	err := service.DeleteLocation(d.Id())
-
-	if err != nil {
+	if err := service.DeleteLocation(d.Id()); err != nil {
 		return fmt.Errorf("error deleting HVR location %+v: %s", d, err)
 	}
 

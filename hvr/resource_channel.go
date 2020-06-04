@@ -74,9 +74,8 @@ func resourceHVRChannelUpdate(d *schema.ResourceData, meta interface{}) error {
 		Name:        d.Get("name").(string),
 		Description: d.Get("description").(string),
 	}
-	err := service.UpdateChannel(channel)
 
-	if err != nil {
+	if err := service.UpdateChannel(channel); err != nil {
 		return fmt.Errorf("error updating HVR channel %+v: %s", d, err)
 	}
 
@@ -86,9 +85,7 @@ func resourceHVRChannelUpdate(d *schema.ResourceData, meta interface{}) error {
 func resourceHVRChannelDelete(d *schema.ResourceData, meta interface{}) error {
 	service := meta.(Service)
 
-	err := service.DeleteChannel(d.Id())
-
-	if err != nil {
+	if err := service.DeleteChannel(d.Id()); err != nil {
 		return fmt.Errorf("error deleting HVR channel %+v: %s", d, err)
 	}
 

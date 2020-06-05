@@ -32,15 +32,18 @@ func expandLocation(d *schema.ResourceData) hvrhub.Location {
 		location.DBUser = fmt.Sprintf("%s/%s", connection["username"], connection["password"])
 	}
 
-	var remoteMachine map[string]interface{}
-	for _, c := range d.Get("remote_machine").([]interface{}) {
-		remoteMachine = c.(map[string]interface{})
-	}
+	if rm, isDefined := d.GetOk("remote_machine"); isDefined {
+		var remoteMachine map[string]interface{}
 
-	location.RemoteNode = remoteMachine["node"].(string)
-	location.RemotePort = remoteMachine["port"].(int)
-	location.RemoteLogin = remoteMachine["username"].(string)
-	location.RemotePassword = remoteMachine["password"].(string)
+		for _, r := range rm.([]interface{}) {
+			remoteMachine = r.(map[string]interface{})
+		}
+
+		location.RemoteNode = remoteMachine["node"].(string)
+		location.RemotePort = remoteMachine["port"].(int)
+		location.RemoteLogin = remoteMachine["username"].(string)
+		location.RemotePassword = remoteMachine["password"].(string)
+	}
 
 	return location
 }

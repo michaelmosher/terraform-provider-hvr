@@ -123,7 +123,10 @@ func resourceHVRLocationRead(d *schema.ResourceData, meta interface{}) error {
 	d.Set("class", location.Class)
 	d.Set("description", location.Description)
 	d.Set("database_connection", flattenDatabaseConnection(location))
-	d.Set("remote_machine", flattenRemoteMachine(location))
+
+	if location.RemoteNode != "" {
+		d.Set("remote_machine", flattenRemoteMachine(location))
+	}
 
 	return nil
 }

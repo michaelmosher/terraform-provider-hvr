@@ -114,8 +114,8 @@ github.com/hashicorp/logutils v1.0.0/go.mod h1:QIAnNjmIWmVIIkWDTG1z5v++HQmx9WQRO
 github.com/hashicorp/terraform-config-inspect v0.0.0-20191115094559-17f92b0546e8 h1:+RyjwU+Gnd/aTJBPZVDNm903eXVjjqhbaR4Ypx3xYyY=
 github.com/hashicorp/terraform-config-inspect v0.0.0-20191115094559-17f92b0546e8/go.mod h1:p+ivJws3dpqbp1iP84+npOyAmTTOLMgCzrXd3GSdn/A=
 github.com/hashicorp/terraform-json v0.4.0/go.mod h1:eAbqb4w0pSlRmdvl8fOyHAi/+8jnkVYN28gJkSJrLhU=
-github.com/hashicorp/terraform-plugin-sdk v1.13.0 h1:8v2/ZNiI12OHxEn8pzJ3noCHyRc0biKbKj+iFv5ZWKw=
-github.com/hashicorp/terraform-plugin-sdk v1.13.0/go.mod h1:HiWIPD/T9HixIhQUwaSoDQxo4BLFdmiBi/Qz5gjB8Q0=
+github.com/hashicorp/terraform-plugin-sdk v1.13.1 h1:kWq+V+4BMFKtzIuO8wb/k4SRGB/VVF8g468VSFmAnKM=
+github.com/hashicorp/terraform-plugin-sdk v1.13.1/go.mod h1:HiWIPD/T9HixIhQUwaSoDQxo4BLFdmiBi/Qz5gjB8Q0=
 github.com/hashicorp/terraform-plugin-test v1.3.0/go.mod h1:QIJHYz8j+xJtdtLrFTlzQVC0ocr3rf/OjIpgZLK56Hs=
 github.com/hashicorp/terraform-svchost v0.0.0-20191011084731-65d371908596 h1:hjyO2JsNZUKT1ym+FAdlBEkGPevazYsmVgIMw7dVELg=
 github.com/hashicorp/terraform-svchost v0.0.0-20191011084731-65d371908596/go.mod h1:kNDNcF7sN4DocDLBkQYz73HGKwN1ANB1blq4lIYLYvg=
@@ -162,14 +162,6 @@ github.com/mattn/go-isatty v0.0.5/go.mod h1:Iq45c/XA43vh69/j3iqttzPXn0bhXyGjM0Hd
 github.com/mattn/go-runewidth v0.0.4/go.mod h1:LwmH8dsx7+W8Uxz3IHJYH5QSwggIsqBzpuz5H//U1FU=
 github.com/mattn/go-sqlite3 v1.9.0 h1:pDRiWfl+++eC2FEFRy6jXmQlvp4Yh3z1MJKg4UeYM/4=
 github.com/mattn/go-sqlite3 v1.9.0/go.mod h1:FPy6KqzDD04eiIsT53CuJW3U88zkxoIYsOqkbpncsNc=
-github.com/michaelmosher/go-hvr-sdk v0.0.0-20200601111817-29a73dfad23e h1:1ydMS6nwcQp/sn2r4YaxyH1mRoSeeHN24SQ8fXcMnJE=
-github.com/michaelmosher/go-hvr-sdk v0.0.0-20200601111817-29a73dfad23e/go.mod h1:QfRaSM8DRLwVoYOmXR9eWvDw++Z2EaSw2r2FW2snFWo=
-github.com/michaelmosher/go-hvr-sdk v0.0.0-20200601124941-989974092169 h1:8WunbgH4ogDW3H9M20AIy83uHCKGDlMdJu92G2sabFg=
-github.com/michaelmosher/go-hvr-sdk v0.0.0-20200601124941-989974092169/go.mod h1:QfRaSM8DRLwVoYOmXR9eWvDw++Z2EaSw2r2FW2snFWo=
-github.com/michaelmosher/go-hvr-sdk v0.0.0-20200602114306-84a0a67182f8 h1:tb4J+1ykjK7GzKsBgNV88pzLvGb/jppC3XXLPlSluPk=
-github.com/michaelmosher/go-hvr-sdk v0.0.0-20200602114306-84a0a67182f8/go.mod h1:QfRaSM8DRLwVoYOmXR9eWvDw++Z2EaSw2r2FW2snFWo=
-github.com/michaelmosher/go-hvr-sdk v0.0.0-20200603002021-4d5c3d7f2792 h1:CMBVhsubm/5S9Nf5rsGslZixQGaLgVZQWftqSCT1Pg8=
-github.com/michaelmosher/go-hvr-sdk v0.0.0-20200603002021-4d5c3d7f2792/go.mod h1:QfRaSM8DRLwVoYOmXR9eWvDw++Z2EaSw2r2FW2snFWo=
 github.com/michaelmosher/go-hvr-sdk v0.0.0-20200603010218-5bc12b8928a8 h1:8qTipZQNsPlEDcpwiJmn5DNF6Zm65IIoTICcgpQhy3k=
 github.com/michaelmosher/go-hvr-sdk v0.0.0-20200603010218-5bc12b8928a8/go.mod h1:QfRaSM8DRLwVoYOmXR9eWvDw++Z2EaSw2r2FW2snFWo=
 github.com/mitchellh/cli v1.0.0 h1:iGBIsUe3+HZ/AD/Vd7DErOt5sU9fa8Uj7A2s1aggv1Y=
